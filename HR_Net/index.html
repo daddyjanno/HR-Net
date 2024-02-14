@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" href=".//favicon.ico" />
+        <link href="./src/style/style.css" rel="stylesheet" type="text/css" />
+        <link
+            rel="preload"
+            fetchpriority="high"
+            as="image"
+            href="/src/assets/Logo.webp"
+            type="image/webp"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="HR Net website" />
+        <title>HR Net</title>
+    </head>
+    <body>
+        <header>
+            <nav id="navbar" class="navbar">
+                <div class="logo_container">
+                    <a href="/"
+                        ><img
+                            src="./src/assets/Logo.webp"
+                            class="header-logo-image"
+                            alt="HR Net logo"
+                    /></a>
+                </div>
+                <div class="title_container">
+                    <h1>HR Net</h1>
+                </div>
+                <div class="nav_container">
+                    <a href="/">Home</a>
+                    <a href="/employees">Employees</a>
+                </div>
+            </nav>
+        </header>
+        <div id="root"></div>
+        <footer>Copyright 2024 HR Net</footer>
+        <script type="module" src="/src/main.tsx"></script>
+    </body>
+</html>
