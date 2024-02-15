@@ -3,6 +3,7 @@ import { createMockedUsers } from '../data/mockedUsers'
 import { EmployeeType } from '../pages/Employees'
 
 const mockedUsers = createMockedUsers()
+// const mockedUsers = []
 const initialState: Array<object> = mockedUsers
 
 export const employeesSlice = createSlice({
