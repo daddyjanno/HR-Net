@@ -1,8 +1,7 @@
-import { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { changeCurrentPage } from '../app/navSlice'
+import { useSelector } from 'react-redux'
 import { getEmployees } from '../app/employeesSlice'
 import Table from '@daddyjanno/simple-table-comp'
+import { useNavigate } from 'react-router-dom'
 
 export type EmployeeType = {
     [index: string]: string
@@ -25,22 +24,30 @@ function Employees() {
         { label: 'State', accessor: 'state', sortable: true },
         { label: 'Zip Code', accessor: 'zipCode', sortable: true },
     ]
-    const dispatch = useDispatch()
-    const data = useSelector(getEmployees)
 
-    useEffect(() => {
-        dispatch(changeCurrentPage('Employees'))
-    }, [dispatch])
+    const data = useSelector(getEmployees)
+    const navigate = useNavigate()
+    // const data = []
+
+    const handleClickHome = (e: React.MouseEvent<HTMLSpanElement>) => {
+        e.preventDefault()
+        navigate('/')
+    }
 
     return (
         <main>
-            <Table
-                caption={'Current Employees'}
-                data={data}
-                columns={columns}
-                showEntries={true}
-                showSearch={true}
-            />
+            <span id="viewHome" onClick={(e) => handleClickHome(e)}>
+                Home
+            </span>
+            <div className="tableContainer">
+                <Table
+                    caption={'Current Employees'}
+                    data={data}
+                    columns={columns}
+                    showEntries={true}
+                    showSearch={true}
+                />
+            </div>
         </main>
     )
 }

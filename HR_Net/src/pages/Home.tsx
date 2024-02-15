@@ -1,20 +1,27 @@
-import { useDispatch } from 'react-redux'
 import NewEmployeeForm from '../components/NewEmployeeForm/NewEmployeeForm'
-import { useEffect, useState } from 'react'
-import { changeCurrentPage } from '../app/navSlice'
+import { useState } from 'react'
+
 import Modal from '../components/Modal/Modal'
+import { useNavigate } from 'react-router-dom'
 
 function Home() {
-    const dispatch = useDispatch()
     const [modalOpen, setModalOpen] = useState(false)
+    const navigate = useNavigate()
 
-    useEffect(() => {
-        dispatch(changeCurrentPage('HR Net'))
-    }, [dispatch])
+    const handleClickEmployees = (e: React.MouseEvent<HTMLSpanElement>) => {
+        e.preventDefault()
+        navigate('/employees')
+    }
 
     return (
         <>
             <main>
+                <button
+                    id="viewEmployees"
+                    onClick={(e) => handleClickEmployees(e)}
+                >
+                    View current employees
+                </button>
                 <section>
                     <NewEmployeeForm setModalOpen={setModalOpen} />
                 </section>
