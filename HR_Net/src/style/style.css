@@ -85,6 +85,7 @@ h1 {
 }
 .tableContainer {
     margin-bottom: 1rem;
+    width: 95%;
 }
 .formContainer {
     background-color: #fff;
